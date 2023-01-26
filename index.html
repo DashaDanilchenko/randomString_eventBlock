@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random String</title>
     <link rel="stylesheet" href="./styles.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.2.min.js"></script>
 </head>
 <body>
     
     <div class="container">
         <h2>Random String Generator</h2>
         <footer>
-            <p>String should be <input type="text"> characters long. </p>
+            <p>String should be <input type="text" id="text"> characters long. </p>
             <p>Which characters are allowed to occur in the string?</p>
-            <p><input type="checkbox" id="scales" name="scales" > Numeric digits (0 - 9)</p>
-            <p><input type="checkbox" id="scales" name="scales" > Uppercase letters (A - Z)</p>
-            <p><input type="checkbox" id="scales" name="scales" > Lowercase letters (a - z)</p>
+            <p><input type="checkbox" id="num" name="num"> Numeric digits (0 - 9)</p>
+            <p><input type="checkbox" id="upper" name="upper" > Uppercase letters (A - Z)</p>
+            <p><input type="checkbox" id="lower" name="lower" > Lowercase letters (a - z)</p>
             <button>Generate</button>
         <hr>
         <div>

@@ -1,16 +1,26 @@
-const num = '0123456789'
-const lettersUppercase = 'QWERTYUIOPASDFGHJKLZXCVBNM'
-const lettersLowercase = 'qwertyuiopasdfghjklzxcvbnm'
+let num 
+let lettersUppercase
+let lettersLowercase
 
-console.log(pass_gen(6, num))
-console.log(pass_gen(12, num, lettersUppercase))
-console.log(pass_gen(32, num, lettersUppercase, lettersLowercase))
-function pass_gen(len, a, b, c) {
-    chrs = a+b+c;
-    var str = '';
-    for (var i = 0; i < len; i++) {
-        var pos = Math.floor(Math.random() * chrs.length);
-        str += chrs.substring(pos,pos+1);
+$(document).ready(function() {
+
+    $("button").click(() => {
+        let number = Number($("#text").val())
+        $("#num").prop('checked')? num = '0123456789': num = ''
+        $("#upper").prop('checked')? upper = 'QWERTYUIOPASDFGHJKLZXCVBNM': upper = ''
+        $("#lower").prop('checked')? lower = 'qwertyuiopasdfghjklzxcvbnm': lower = ''
+        str_gen(number, num, upper, lower)
+    })
+
+    function str_gen(n, a, b, c) {
+        allStr = a + b + c;
+        let str = '';
+        for (let i = 0; i < n; i++) {
+            let pos = Math.floor(Math.random() * allStr.length);
+            str += allStr.substring(pos,pos+1);
+        }
+        console.log(str)
+        return str;
     }
-    return str;
-}
+
+})
