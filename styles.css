@@ -17,16 +17,21 @@
     width: 40vw;
 }
 
+.right {
+    width: 60vw;
+    display: flex;
+}
+
+.in_right {
+    background: rgb(77, 38, 78);
+    width: calc(100vw - 20px);
+}
+
 .arrow {
     background: rgb(110, 110, 112);
     width: 20px;
     display: flex;
     align-items: center;
-}
-
-.right {
-    background: rgb(157, 123, 158);
-    width: calc(60vw - 20px);
 }
 
 .triangle_right {
@@ -35,7 +40,6 @@
 	border-top: 20px solid transparent;
 	border-right: 20px solid black;
 	border-bottom: 20px solid transparent;
-    /* display: none; */
 }
 
 .triangle_left {
