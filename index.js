@@ -9,7 +9,8 @@ $(document).ready(function() {
         $("#num").prop('checked')? num = '0123456789': num = ''
         $("#upper").prop('checked')? upper = 'QWERTYUIOPASDFGHJKLZXCVBNM': upper = ''
         $("#lower").prop('checked')? lower = 'qwertyuiopasdfghjklzxcvbnm': lower = ''
-        str_gen(number, num, upper, lower)
+        const receivedString = str_gen(number, num, upper, lower)
+        $('#result').text(receivedString)
     })
 
     function str_gen(n, a, b, c) {
@@ -19,8 +20,6 @@ $(document).ready(function() {
             let pos = Math.floor(Math.random() * allStr.length);
             str += allStr.substring(pos,pos+1);
         }
-        console.log(str)
         return str;
     }
-
 })
