@@ -1,38 +1,79 @@
 * {
     margin: 0;
     padding: 0;
-    
-}
-
-.left, .arrow, .right {
-    height: 100vh;
 }
 
 .container {
-    display: flex;
+    background: bisque;
+}
+
+.border_left {
+    position: absolute;
+    width: 40vw;
+    bottom: 100px;
+    height: calc(200vh - 300px);
 }
 
 .left {
-    background: aquamarine;
     width: 40vw;
+    height: calc(100vh - 100px);
+    top: 100px;
+    background: blueviolet; 
+    position: relative;
 }
 
-.right {
-    width: 60vw;
+.left_scroll {
+    position: relative;
+    top: calc(100vh - 120px);
+    height: 20px;
+    background: rgb(110, 110, 112);
     display: flex;
+    justify-content: center;
 }
 
-.in_right {
-    background: rgb(77, 38, 78);
-    width: calc(100vw - 20px);
+.block_arrow {
+    position: absolute;
+    width: 60vw;
+    left: 40vw;
+    height: 100vh;
+    background: rgb(145, 98, 42);
 }
 
 .arrow {
     background: rgb(110, 110, 112);
     width: 20px;
+    height: 100vh;
     display: flex;
     align-items: center;
+    position: relative;
 }
+
+.border_right{
+    position: absolute;
+    width: calc(60vw - 20px);
+    bottom: 100px;
+    height: calc(200vh - 300px);
+    left: 20px;
+}
+
+.right {
+    width: calc(60vw - 20px);
+    height: calc(100vh - 100px);
+    top: 100px;
+    background: rgb(89, 114, 161); 
+    position: relative;
+}
+
+.right_scroll {
+    position: relative;
+    top: calc(100vh - 120px);
+    height: 20px;
+    background: rgb(110, 110, 112);
+    display: flex;
+    justify-content: center;
+}
+
+
 
 .triangle_right {
     width: 0;
@@ -49,40 +90,6 @@
 	border-left: 20px solid black;
 	border-bottom: 20px solid transparent;
     display: none;
-}
-
-.left_top, .left_scroll, .left_bottom,
-.right_top, .right_scroll, .right_bottom {
-    width: 100%;
-}
-
-.left_top {
-    height: 70vh;
-    background: blue;
-}
-.left_bottom {
-    height: calc(30vh - 20px);
-    background: rgb(161, 50, 115);
-}
-.left_scroll {
-    height: 20px;
-    background: rgb(110, 110, 112);
-    display: flex;
-    justify-content: center;
-}
-.right_top {
-    height: 50vh;
-    background: rgb(94, 136, 47);
-}
-.right_bottom {
-    height: calc(50vh - 20px);
-    background: rgb(33, 93, 148);
-}
-.right_scroll {
-    height: 20px;
-    background: rgb(110, 110, 112);
-    display: flex;
-    justify-content: center;
 }
 
 .scroll {

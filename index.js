@@ -2,33 +2,54 @@
 $(document).ready(function () {
 
     $(".triangle_right").click (() =>{
-        $(".left").animate(
+        $(".block_arrow").animate(
             {
-              width: "0vw",
+              width: "100vw",
+              left: "0"
             },
           );
-          $(".right").animate(
-              {
-                width: "100vw",
-              },
-          );
+        //  $(".right").animate({
+        //   width: "100vw",
+        //   left: "0"
+        //  })
+        //  $(".right_scroll").animate({
+        //   width: "100vw",
+        //   left: "0"
+        //  })
           $(".triangle_left").css("display", "block");
           $(".triangle_right").css("display", "none")
     })
 
     $(".triangle_left").click (() =>{
-        $(".left").animate(
-            {
-              width: "40vw",
-            },
-          );
-          $(".right").animate(
-              {
-                width: "60vw",
-              },
-          );
+      $(".block_arrow").animate(
+        {
+          width: "60vw",
+          left: "40vw"
+        },
+      );
+      // $(".right").animate({
+      //   width: "calc(60vw - 20px)",
+      //  })
+      //  $(".right_scroll").animate({
+      //   width: "60vw",
+      //  })
           $(".triangle_right").css("display", "block");
           $(".triangle_left").css("display", "none");
     })
+
+
+
+    $(".left").draggable({
+      containment: '.border_left',
+      cursor: 'move',
+      snap: '.border_left',
+    })
+
+    $(".right").draggable({
+      containment: '.border_right',
+      cursor: 'move',
+      snap: '.border_right',
+    })
+    
 
     })
