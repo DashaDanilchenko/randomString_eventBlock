@@ -8,14 +8,14 @@ $(document).ready(function () {
               left: "0"
             },
           );
-        //  $(".right").animate({
-        //   width: "100vw",
-        //   left: "0"
-        //  })
-        //  $(".right_scroll").animate({
-        //   width: "100vw",
-        //   left: "0"
-        //  })
+         $(".right").animate({
+          width: "100vw",
+          left: "0"
+         })
+         $(".right_scroll").animate({
+          width: "100vw",
+          left: "0"
+         })
           $(".triangle_left").css("display", "block");
           $(".triangle_right").css("display", "none")
     })
@@ -27,12 +27,12 @@ $(document).ready(function () {
           left: "40vw"
         },
       );
-      // $(".right").animate({
-      //   width: "calc(60vw - 20px)",
-      //  })
-      //  $(".right_scroll").animate({
-      //   width: "60vw",
-      //  })
+      $(".right").animate({
+        width: "60vw",
+       })
+       $(".right_scroll").animate({
+        width: "60vw",
+       })
           $(".triangle_right").css("display", "block");
           $(".triangle_left").css("display", "none");
     })

@@ -3,8 +3,12 @@
     padding: 0;
 }
 
-.container {
-    background: bisque;
+.block {
+    position: absolute;
+    width: 40vw;
+    height: 100vh;
+    background: rgb(170, 149, 124);
+    z-index: -1;
 }
 
 .border_left {
@@ -17,8 +21,8 @@
 .left {
     width: 40vw;
     height: calc(100vh - 100px);
-    top: 100px;
-    background: blueviolet; 
+    top: 600px;
+    background: rgb(114, 132, 167); 
     position: relative;
 }
 
@@ -36,7 +40,7 @@
     width: 60vw;
     left: 40vw;
     height: 100vh;
-    background: rgb(145, 98, 42);
+    background: rgb(163, 110, 110);
 }
 
 .arrow {
@@ -46,21 +50,21 @@
     display: flex;
     align-items: center;
     position: relative;
+    z-index: 1;
 }
 
 .border_right{
     position: absolute;
-    width: calc(60vw - 20px);
+    width: 60vw;
     bottom: 100px;
     height: calc(200vh - 300px);
-    left: 20px;
 }
 
 .right {
-    width: calc(60vw - 20px);
+    width: 60vw;
     height: calc(100vh - 100px);
-    top: 100px;
-    background: rgb(89, 114, 161); 
+    top: 300px;
+    background: rgb(105, 168, 129); 
     position: relative;
 }
 
