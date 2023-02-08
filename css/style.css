@@ -9,6 +9,11 @@ section{
   margin: 50px auto;
 }
 
+.container_btn {
+  display: flex;
+  justify-content: space-between;
+}
+
 .products-wrap{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -47,6 +52,7 @@ section{
   justify-content: space-around;
   margin-top: 100px;
   min-height: 300px;
+  text-align: center;
 }
 
 .card-img-solo {
@@ -62,4 +68,9 @@ section{
 
 #products_all {
   margin-top: 100px;
+}
+
+#buy {
+  margin: 0 auto;
+  width: 100px;;
 }

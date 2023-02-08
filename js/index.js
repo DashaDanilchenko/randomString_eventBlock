@@ -2,6 +2,8 @@ const chance = new Chance();
 const urlReg = "https://fakestoreapi.com/users";
 const urlLogin = "https://fakestoreapi.com/auth/login";
 const urlProducts = "https://fakestoreapi.com/products";
+let arrBuy = []
+let storageBuy = JSON.parse(localStorage.getItem('arrBuy')) || []
 
 
 function checkAuth() {
@@ -121,15 +123,40 @@ function returnStore() {
     location.reload(true);
 }
 
+function saveMemory(arrBuy) {
+    localStorage.setItem("arrBuy", JSON.stringify(arrBuy))
+}
+
+function buyProduct(id) {
+    $.ajax({
+        url: urlProducts + "/" + id,   
+    })
+    .done(function (response) {
+        const dataProduct = {
+            title: `${response.title}`,
+            price:`${response.price}`,
+        }
+        arrBuy.push(dataProduct)
+        saveMemory(arrBuy)
+        $("#basket").append(`<span>${arrBuy.length}</span>`)
+    })
+    .fail(function () {
+        console.log("error")
+    })
+    .always(function () {
+        console.log("complete")
+    });
+    console.log(localStorage)
+}
+
 function getProductByID(id) {
     console.log(id)
 
     $.ajax({
         url: urlProducts + "/" + id,
-
+        
     })
         .done(function (response) {
-            console.log(response)
             $("#products").empty();
             $("#products").append(`<div class="card_solo">
             <img src=${response.image} class="card-img-solo" alt="...">
@@ -137,7 +164,8 @@ function getProductByID(id) {
               <h5 class="card-title">${response.title}</h5>
               <p class="card-category">${response.category}</p>
               <p class="card-text">${response.description}</p> 
-              <h3 class="card-price">${response.price} $</h3> 
+              <h3 class="card-price">${response.price} $</h3>
+              <button type="button" class="btn btn-danger" id="buy" onClick="buyProduct(${id})">Buy</button> 
             </div>
           </div>
           <button type="button" class="btn btn-primary" id="products_all" onClick="returnStore()">Return to the store</button>
@@ -152,12 +180,9 @@ function getProductByID(id) {
         });
 }
 
+if (storageBuy) {
+    arrBuy = storageBuy 
+    // renderElement(BOOK, bookData, arrLBooks)
+}
 
-// `<div class="card">
-//                 <img src=${item.image} class="card-img-top" alt="...">
-//                 <div class="card-body">
-//                   <h5 class="card-title">${item.title}</h5>
-//                   <p class="card-text">${item.description}</p>
-//                   <button class="btn btn-primary" onClick="getProductByID(${item.id})">Show more</button>
-//                 </div>
-//               </div>`
+console.log(localStorage)
