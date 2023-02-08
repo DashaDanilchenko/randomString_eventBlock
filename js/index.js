@@ -96,15 +96,16 @@ function getProducts() {
     })
         .done(function (response) {
             console.log(response)
+            $("#products").empty()
+            $("#products").append('<div class="products-wrap"></div>')
             response.map(item => {
-                $("#products").append(`<div class="card">
-                <img src=${item.image} class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">${item.title}</h5>
-                  <p class="card-text">${item.description}</p>
-                  <button class="btn btn-primary" onClick="getProductByID(${item.id})">Show more</button>
-                </div>
-              </div>`)
+                $(".products-wrap").append(`<div class="card" onClick="getProductByID(${item.id})">
+                    <div class="card_content">
+                        <img src=${item.image} class="card-img-top" alt="...">
+                        <h5 class="card-title">${item.title}</h5>
+                    </div>
+                    <h3 class="card-price">${item.price} $</h3>
+                </div>`)
             }
             )
         })
@@ -114,6 +115,10 @@ function getProducts() {
         .always(function () {
             console.log("complete")
         });
+}
+
+function returnStore() {
+    location.reload(true);
 }
 
 function getProductByID(id) {
@@ -126,14 +131,17 @@ function getProductByID(id) {
         .done(function (response) {
             console.log(response)
             $("#products").empty();
-            $("#products").append(`<div class="card">
-            <img src=${response.image} class="card-img-top" alt="...">
-            <div class="card-body">
+            $("#products").append(`<div class="card_solo">
+            <img src=${response.image} class="card-img-solo" alt="...">
+            <div class="card-body-solo">
               <h5 class="card-title">${response.title}</h5>
-              <p class="card-text">${response.description}</p>
-              
+              <p class="card-category">${response.category}</p>
+              <p class="card-text">${response.description}</p> 
+              <h3 class="card-price">${response.price} $</h3> 
             </div>
-          </div>`)
+          </div>
+          <button type="button" class="btn btn-primary" id="products_all" onClick="returnStore()">Return to the store</button>
+          `)
 
         })
         .fail(function () {
@@ -145,3 +153,11 @@ function getProductByID(id) {
 }
 
 
+// `<div class="card">
+//                 <img src=${item.image} class="card-img-top" alt="...">
+//                 <div class="card-body">
+//                   <h5 class="card-title">${item.title}</h5>
+//                   <p class="card-text">${item.description}</p>
+//                   <button class="btn btn-primary" onClick="getProductByID(${item.id})">Show more</button>
+//                 </div>
+//               </div>`
