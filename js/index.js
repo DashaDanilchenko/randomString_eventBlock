@@ -127,6 +127,25 @@ function saveMemory(arrBuy) {
     localStorage.setItem("arrBuy", JSON.stringify(arrBuy))
 }
 
+function listBuy() {
+    $("#basket").append(`${arrBuy.length}`)
+    $('#list').append(`<lu class="listIn_basket"></lu>`)
+    arrBuy.map(item => {
+        $(".listIn_basket").append(`
+            <li>
+                <span>${item.title}</span>
+                <span class="card-price">${item.price} $</span>
+            </li>
+        `)
+    })
+
+    let sum = arrBuy.reduce((accumulator, currentValue) => accumulator + Number(currentValue.price), 0)
+    
+    $('#list').append('<hr/>')
+
+    $('#list').append(`<p class="card-price">${sum} $</p>`)
+}
+
 function buyProduct(id) {
     $.ajax({
         url: urlProducts + "/" + id,   
@@ -138,7 +157,9 @@ function buyProduct(id) {
         }
         arrBuy.push(dataProduct)
         saveMemory(arrBuy)
-        $("#basket").append(`<span>${arrBuy.length}</span>`)
+        $("#basket").empty()
+        $('#list').empty()
+        listBuy()
     })
     .fail(function () {
         console.log("error")
@@ -146,7 +167,6 @@ function buyProduct(id) {
     .always(function () {
         console.log("complete")
     });
-    console.log(localStorage)
 }
 
 function getProductByID(id) {
@@ -166,9 +186,10 @@ function getProductByID(id) {
               <p class="card-text">${response.description}</p> 
               <h3 class="card-price">${response.price} $</h3>
               <button type="button" class="btn btn-danger" id="buy" onClick="buyProduct(${id})">Buy</button> 
+              <button type="button" class="btn btn-primary" id="products_all" onClick="returnStore()">Return to the store</button>
             </div>
           </div>
-          <button type="button" class="btn btn-primary" id="products_all" onClick="returnStore()">Return to the store</button>
+         
           `)
 
         })
@@ -182,7 +203,5 @@ function getProductByID(id) {
 
 if (storageBuy) {
     arrBuy = storageBuy 
-    // renderElement(BOOK, bookData, arrLBooks)
+    listBuy()
 }
-
-console.log(localStorage)

@@ -26,7 +26,7 @@ section{
 }
 
 .card_content {
-  min-height: 700px;
+  min-height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -72,5 +72,10 @@ section{
 
 #buy {
   margin: 0 auto;
-  width: 100px;;
+  width: 100px;
+}
+
+#products_all {
+  margin: 0 auto;
+  width: 180px
 }
